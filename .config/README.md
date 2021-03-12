@@ -121,10 +121,26 @@ https://github.com/tmux-plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-#### *manual mode only:* install dracula theme
 draculat theme --> https://draculatheme.com/tmux
 
-set -g @plugin 'dracula/tmux'  
+#### manual mode: 
+add to .zshrc:
+
+```
+set -g @plugin 'dracula/tmux'
+```
+
+### active dracula theme
+
+run tmux and install:
+
+```
+tmux
+```
+
+in tmux, use tpm install command: `*prefix* + i` 
+
+(prefix id `ctrl + b` by default, and `ctrl + a` with this config)
 
 
 ## *manual mode only:* let's put this config into a git repo (hey it's this one!)
