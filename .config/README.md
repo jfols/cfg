@@ -15,18 +15,34 @@ install --> [rustup.rs](https://rustup.rs/)
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-## n
+## Automagic mode: get this repo's config files automagically
 
+*SKIP this for **manual mode***
+
+```
+cd ~
+git clone --bare https://github.com/jfols/cfg.git .cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config checkout
+```
+
+note: if you see some errors that files already exist, move the files to a backup location...eg: `mv .zshrc .zshrc.bak`
+
+note2: you likely have to rename the user path
+
+## *manual mode only: set up N_PREFIX
+
+add to .zshrc
+```
+export N_PREFIX=~/n
+```
+
+## install n
 ```
 brew install n
 n install current
 n install lts
 n use lts
-```
-
-add to .zshrc
-```
-export N_PREFIX=~/n
 ```
 
 ## oh-my-zsh
@@ -39,13 +55,14 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 set `ZSH_THEME="powerlevel10k" in `~/.zshrc`
-## install alacritty from source
+
+## install alacritty
 
 `brew install alacritty`
 
 or...
 
-### for M1
+### Manual compilation for M1 (for now, brew doesn't have universal alacritty binary)
 https://bou.ke/blog/macbouk-air/
 
 clone alacritty repo, inside repo:
@@ -60,7 +77,7 @@ cargo build --release --target=aarch64-apple-darwin;
 lipo target/{x86_64,aarch64}-apple-darwin/release/alacritty -create -output alacritty;
 ```
 
-## automator application for alacritty
+#### automator application for alacritty
 
 - run script:
 ```
@@ -68,12 +85,12 @@ nohup /Applications/build/alacritty > /dev/null 2>&1 &
 ```
 - save as application "Alacritty"
 
-## set alacritty icon
+#### set alacritty icon
 
 - copy alacritty png from finder cmd+a, cmd+c
 - open file info for alacritty (cmd+i), select icon in top left, cmd-v
 
-## configure alacritty
+## *manual mode only:* configure alacritty
 add default `.config/alacritty/alacritty.yml` from https://github.com/alacritty/alacritty/releases
 
 uncomment what ya like
@@ -97,12 +114,13 @@ https://github.com/tmux-plugins/tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+#### *manual mode only:* install dracula theme
 draculat theme --> https://draculatheme.com/tmux
 
 set -g @plugin 'dracula/tmux'  
 
 
-## let's put this config into a git repo (hey it's this one!)
+## *manual mode only:* let's put this config into a git repo (hey it's this one!)
 
 ```
 git init --bare $HOME/.cfg
