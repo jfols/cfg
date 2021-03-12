@@ -117,4 +117,4 @@ alias c="clear"
 export N_PREFIX=$HOME/n
 PATH=$PATH:~/n/bin
 
-alias config='/usr/bin/git --git-dir=/Users/jfols/.cfg/ --work-tree=/Users/jfols'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

@@ -30,6 +30,13 @@ note: if you see some errors that files already exist, move the files to a backu
 
 note2: you likely have to rename the user path
 
+### updating to latest and OVERWRITE local changes
+
+```
+config fetch
+config reset --hard FETCH_HEAD
+```
+
 ## *manual mode only: set up N_PREFIX
 
 add to .zshrc
