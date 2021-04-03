@@ -117,4 +117,12 @@ alias c="clear"
 export N_PREFIX=$HOME/n
 PATH=$PATH:~/n/bin
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# aliases
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'		# bare git repo for config files, try `config status`
+alias c='clear'									# clear
+alias v='code .'								# visual studio code
+alias t='tmux new -s'								# tmux new named session
+alias ta='tmux attach -t'							# tmux attach
+alias tl='tmux list-sessions'							# tmux list sesssions
+alias td='tmux detach-client'							# tmux detach
+alias tk='tmux kill-session'							# tmux kill
